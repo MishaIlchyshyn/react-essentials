@@ -5,7 +5,7 @@ import { CORE_CONCEPTS } from "./data";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
 
       <main>
@@ -16,8 +16,12 @@ function App() {
             {CORE_CONCEPTS.map((item) => (<CoreConcept key={item.title} {...item} />))}
           </ul>
         </section>
+
+        <section id='examples'>
+          <h2>Examples</h2>
+        </section>
       </main>
-    </div>
+    </>
   );
 }
 
