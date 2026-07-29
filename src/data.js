@@ -30,6 +30,25 @@ export const CORE_CONCEPTS = [
   },
 ];
 
+export const EXAMPLES_TABS = [
+  {
+    id: 'components',
+    title: 'Components'
+  },
+  {
+    id: 'jsx',
+    title: 'JSX'
+  },
+  {
+    id: 'props',
+    title: 'Props'
+  },
+  {
+    id: 'state',
+    title: 'State'
+  }
+];
+
 export const EXAMPLES = {
   components: {
     title: 'Components',

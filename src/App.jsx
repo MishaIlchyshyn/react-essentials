@@ -2,10 +2,11 @@ import { useState } from "react";
 
 import Header from "./components/Header/Header.jsx";
 import CoreConcept from "./components/CoreConcept/CoreConcept.jsx";
-import TabButton from "./TabButton";
+import TabButton from "./components/TabButton/TabButton.jsx";
 
 import { CORE_CONCEPTS } from "./data";
 import { EXAMPLES } from "./data";
+import { EXAMPLES_TABS } from "./data";
 
 function App() {
   const [activeTab, setActiveTab] = useState();
@@ -45,22 +46,15 @@ function App() {
           <h2>Examples</h2>
 
           <menu>
-            <TabButton
-              isActive={activeTab === "components"}
-              onSelect={() => handleTabClick("components")}>Components
-            </TabButton>
-            <TabButton
-              isActive={activeTab === "jsx"}
-              onSelect={() => handleTabClick("jsx")}>JSX
-            </TabButton>
-            <TabButton
-              isActive={activeTab === "props"}
-              onSelect={() => handleTabClick("props")}>Props
-            </TabButton>
-            <TabButton
-              isActive={activeTab === "state"}
-              onSelect={() => handleTabClick("state")}>State
-            </TabButton>
+            { EXAMPLES_TABS.map((tab) => (
+              <TabButton
+                key={tab.id}
+                isActive={activeTab === tab.id}
+                onSelect={() => handleTabClick(tab.id)}
+              >
+                {tab.title}
+              </TabButton>
+            ))}
           </menu>
 
           {content}
