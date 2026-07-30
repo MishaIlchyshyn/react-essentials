@@ -3,30 +3,14 @@ import { useState } from "react";
 import Header from "./components/Header/Header.jsx";
 import CoreConcept from "./components/CoreConcept/CoreConcept.jsx";
 import TabButton from "./components/TabButton/TabButton.jsx";
-
-import { CORE_CONCEPTS } from "./data";
-import { EXAMPLES } from "./data";
-import { EXAMPLES_TABS } from "./data";
+import TabContent from "./components/TabContent/TabContent.jsx";
+import { CORE_CONCEPTS, EXAMPLES_TABS } from "./data";
 
 function App() {
   const [activeTab, setActiveTab] = useState();
 
   function handleTabClick(tabName) {
     setActiveTab(tabName);
-  }
-
-  let content = <p>Select Example</p>;
-
-  if (activeTab) {
-    content = (
-      <div id="tab-content">
-        <h3>{EXAMPLES[activeTab].title}</h3>
-        <p>{EXAMPLES[activeTab].description}</p>
-        <pre>
-          <code>{EXAMPLES[activeTab].code}</code>
-        </pre>
-      </div>
-    );
   }
 
   return (
@@ -57,7 +41,7 @@ function App() {
             ))}
           </menu>
 
-          {content}
+          <TabContent activeTab={activeTab} />
         </section>
       </main>
     </>
